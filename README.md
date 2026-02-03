@@ -15,15 +15,3 @@
 
 ## 🚀 Usage
 如何运行 / 示例命令。
-
-## 📊 Results
-实验结果 / 示例输出 / 可视化。
-
-## 📁 Project Structure
-项目目录说明。
-
-## 📖 Citation
-如果是论文或可引用工作。
-
-## 🙏 Acknowledgements
-致谢 / 基于哪些工作。
