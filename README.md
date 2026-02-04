@@ -1,26 +1,26 @@
 
 ## Abstract
+Person search is a challenging computer vision task that aims to simultaneously detect and re-identify individuals from uncropped gallery images. However, most existing approaches are limited by restricted receptive ffelds, leading to distorted local feature representations under occlusions or complex poses. Additionally, scale variations hinder model generalization in real-world scenarios. To address these limitations, we introduce a novel E-Bike Rider Search (EBRS) dataset, which comprises 27,501 images capturing 963 distinct IDs across 8 camera views at a large urban intersection in a Chinese city. Furthermore, we propose a Context-aware Dynamic Contrastive Learning (CDCL) framework that dynamically
+adjusts convolutional weights and performs hard sample mining based on contextual cues, thereby improving discriminative capability for both local details and global features. Extensive experiments show our method achieves state-ofthe-art
+ performance on CUHK-SYSU and PRW benchmarks, with competitive results on the challenging EBRS dataset, demonstrating its effectiveness.
 
-Person search is a challenging computer vision problem where the objective is to simultaneously detect and reidentify a target person from the gallery of whole scene images captured from multiple cameras. Here, the challenges related to underlying detection and re-identification tasks need to be addressed along with joint optimization of these two tasks. In this paper, we propose a three-stage cascaded Scale-Augmented Transformer (SAT) person search framework. In the three-stage design of our SAT framework, the first stage performs person detection whereas the last two stages perform both detection and re-identification.
-Considering the contradictory nature of detection and reidentification, in the last two stages, we introduce separate norm feature embeddings for the two tasks to reconcile the relationship between them in a joint person search model. Our SAT framework benefits from the attributes of convolutional neural networks and transformers by introducing a convolutional encoder and a scale modulator within each stage. Here, the convolutional encoder increases the generalization ability of the model whereas the scale modulator performs context aggregation at different granularity levels to aid in handling pose/scale variations within a region of interest. To further improve the performance during occlusion, we apply shifting augmentation operations at each granularity level within the scale modulator. Experimental results on challenging CUHK-SYSU [35] and PRW
-[47] datasets demonstrate the favorable performance of our method compared to state-of-the-art methods.
 
 ## Installation
 
-pip install -r requirements.txt
+Create the environment using yml  `conda env create -f satnet.yml` in the root directory of the project.
 
 ## Quick Start
 
 Let's say `$ROOT` is the root directory.
 
-1. Download [CUHK-SYSU](https://drive.google.com/open?id=1z3LsFrJTUeEX3-XjSEJMOBrslxD2T5af) and [PRW](http://pan.baidu.com/s/1i5tqYbj) datasets, and unzip them to `$ROOT/data`
+1. Download [EBRS](https://drive.google.com/open?id=1z3LsFrJTUeEX3-XjSEJMOBrslxD2T5af)  datasets, and unzip them to `$ROOT/data`
 2. Or can be found at [PS Datasets](https://drive.google.com/drive/folders/1jQUvxxOq_O-e09zVSFLAot673JrMLGG6?usp=sharing)
 ```
 $ROOT/data
-├── CUHK-SYSU
+├── EBRS
 └── PRW
+└── CUHK-SYSU
 ```
-2. Following the link in the above table, download our pre-trained model to anywhere you like, e.g., `$ROOT/exp_cuhk`
 3. Run an inference demo by specifying the paths of the checkpoint and corresponding configuration file. `python train.py --cfg $ROOT/exp_cuhk/config.yaml --ckpt $ROOT/exp_cuhk/best_cuhk.ph` You can checkout the result in `demo_imgs` directory.
 
 ![demo.jpg](./demo_imgs/demo.jpg)
@@ -59,8 +59,7 @@ Test the upper bound of the person search performance by using GT boxes:
 python train.py --cfg $ROOT/exp_cuhk/config.yaml --eval --ckpt $ROOT/exp_cuhk/epoch_xx.pth EVAL_USE_GT True
 ```
 
-## Contact
-If you have any questions, please create an issue on this repository or contact us at mustansar.fiaz@mbzuai.ac.ae
+
 
 <hr />
 
@@ -68,21 +67,23 @@ If you have any questions, please create an issue on this repository or contact 
 Our code is based on [SeqNet](https://github.com/serend1p1ty/SeqNet) and [COAT](https://github.com/Kitware/COAT)  repositories. 
 We thank them for releasing their baseline code.
 
-**SAT**: "SAT: Scale-Augmented Transformer for Person Search", WACV, 2022 (*MBZUAI*). [[Paper](https://openaccess.thecvf.com/content/WACV2023/papers/Fiaz_SAT_Scale-Augmented_Transformer_for_Person_Search_WACV_2023_paper.pdf)][[PyTorch](https://github.com/mustansarfiaz/SAT)]
-
 
 ## Citation
 
 ```
-@inproceedings{fiaz2023sat,
-  title={SAT: Scale-Augmented Transformer for Person Search},
-  author={Fiaz, Mustansar and Cholakkal, Hisham and Anwar, Rao Muhammad and Khan, Fahad Shahbaz},
-  booktitle={Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision},
-  year={2023}
+@inproceedings{li2021sequential,
+  title={Sequential end-to-end network for efficient person search},
+  author={Li, Zhengjia and Miao, Duoqian},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={35},
+  number={3},
+  pages={2011--2019},
+  year={2021}
 }
-@inproceedings{fiaz2022psarm,
-  title={PS-ARM: An End-to-End Attention-aware Relation Mixer Network for Person Search},
-  author={Fiaz, Mustansar and Cholakkal, Hisham and Narayan, Sanath and Anwar, Rao Muhammad and Khan, Fahad Shahbaz},
-  booktitle={Proceedings of the ACCV Asian Conference on Computer Vision}, 
+@inproceedings{yu2022cascade,
+  title={Cascade transformers for end-to-end person search},
+  author={Yu, Rui and Du, Dawei and LaLonde, Rodney and Davila, Daniel and Funk, Christopher and Hoogs, Anthony and Clipp, Brian},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={7267--7276},
   year={2022}
 }
