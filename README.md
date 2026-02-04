@@ -1,5 +1,3 @@
-This repository hosts the source code of our paper: [[WACV 2023] SAT: Scale-Augmented Transformer for Person Search](https://openaccess.thecvf.com/content/WACV2023/html/Fiaz_SAT_Scale-Augmented_Transformer_for_Person_Search_WACV_2023_paper.html). 
-
 
 ## Abstract
 
@@ -9,7 +7,7 @@ Considering the contradictory nature of detection and reidentification, in the l
 
 ## Installation
 
-Create the environment using yml  `conda env create -f satnet.yml` in the root directory of the project.
+pip install -r requirements.txt
 
 ## Quick Start
 
