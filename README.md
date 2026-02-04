@@ -7,7 +7,7 @@ adjusts convolutional weights and performs hard sample mining based on contextua
 
 ## Installation
 
-Create the environment using yml  `conda env create -f ebrs.yml` in the root directory of the project.
+Create the environment using yml  `conda env create -f cdcl.yml` in the root directory of the project.
 
 ## Quick Start
 
