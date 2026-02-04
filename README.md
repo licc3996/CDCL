@@ -20,7 +20,7 @@ $ROOT/data
 └── PRW
 └── CUHK-SYSU
 ```
-3. Run an inference demo by specifying the paths of the checkpoint and corresponding configuration file. `python train.py --cfg $ROOT/exp_cuhk/config.yaml --ckpt $ROOT/exp_cuhk/best_cuhk.ph` You can checkout the result in `demo_imgs` directory.
+2. Run an inference demo by specifying the paths of the checkpoint and corresponding configuration file. `python train.py --cfg $ROOT/exp_cuhk/config.yaml --ckpt $ROOT/exp_cuhk/best_cuhk.ph` You can checkout the result in `demo_imgs` directory.
 
 ![demo.jpg](./demo_imgs/demo.jpg)
 
