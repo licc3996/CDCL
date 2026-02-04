@@ -13,7 +13,8 @@ Create the environment using yml  `conda env create -f cdcl.yml` in the root dir
 
 Let's say `$ROOT` is the root directory.
 
-1. Download [EBRS](https://drive.google.com/open?id=1z3LsFrJTUeEX3-XjSEJMOBrslxD2T5af)  datasets, and unzip them to `$ROOT/data`
+1. Download [EBRS](https://pan.baidu.com/s/11tXH6WSPBk_HAy0CMR_scA?pwd=2026 提取码: 2026 
+--来自百度网盘超级会员v1的分享)  datasets, and unzip them to `$ROOT/data`
 ```
 $ROOT/data
 ├── EBRS
