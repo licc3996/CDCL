@@ -322,10 +322,10 @@ class ContrastiveLoss(nn.Module):
 
 
             
-            # ����ͳ����Ϣ
+           
             cache_avg_diff = np.mean([diff for _, diff in self.cache]) if self.cache else 0
 
             
-            # ���ü�����
+          
             self.cache_add_count = 0
             self.cache_reject_count = 0
